@@ -5,7 +5,7 @@ import requests
 
 url = 'http://localhost:9696/predict'
 #from GC[5000]
-day= '2020-08-10'
+day= "2020-08-10"
 open = 2026.400024
 high = 2043.800049
 low = 2017.5
@@ -20,17 +20,16 @@ diff_cl = abs(close - low)
 diff_ch = abs(close - high)
 
 market = {
-  'data': day, 
-  'close': close, 
-  'volume': volume, 
-  'diff_oc': diff_oc, 
-  'diff_hl': diff_hl, 
-  'diff_ol': diff_ol, 
-  'diff_oh': diff_oh, 
-  'diff_cl': diff_cl, 
-  'diff_ch': diff_ch
+  "data": day, 
+  "close": close, 
+  "volume": volume, 
+  "diff_oc": diff_oc, 
+  "diff_hl": diff_hl, 
+  "diff_ol": diff_ol, 
+  "diff_oh": diff_oh, 
+  "diff_cl": diff_cl, 
+  "diff_ch": diff_ch
 }
-
 
 requests.post(url, json=market)
 

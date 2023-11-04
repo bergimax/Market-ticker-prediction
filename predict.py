@@ -6,7 +6,7 @@ from flask import jsonify
 
 model_file = 'mid_term_model.bin'
 
-with open(model_file, 'rb') as f_in: #wb=write, rb=read
+with open(model_file, 'rb') as f_in: 
     dv, model = pickle.load(f_in) 
 
 app = Flask('market_prediction')
