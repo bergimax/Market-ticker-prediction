@@ -1,7 +1,7 @@
 # Market-ticker-prediction
 First ML project about the market ticker recognition. Project for ML-zoomcamp course
 
-![Screenshot](images.jpg)
+![](images.jpg)
 
 ---
 
