@@ -111,11 +111,11 @@ pipenv run gunicorn --bind 0.0.0.0:9696 predict:app
 There is also the file: *Dockerfile* in the repository, through this you can run the web service in a completely separate container :
 - From the project directory, create the docker image :
 ```
-docker build -t market_prevision .
+docker build -t market_pred .
 ```
 - Run the docker image created:
 ```
-docker run -it --rm -p 9696:9696 market_prevision
+docker run -it --rm -p 9696:9696 market_pred:latest
 ```
 
 #### Test the local web service:
@@ -128,6 +128,7 @@ python predict-test.py
 ```
 vi predict-test.py
 ```
+The actual values in predict-test.py are take from Gold, raw number 5000.
 
 ---
 
