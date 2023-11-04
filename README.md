@@ -16,7 +16,10 @@ A lot of strategies are using trading guidelines and operators such as measure o
 With this project I tried to process the data, trying to predict the market ticker. A key aspect of this repository is that it is not intended as a strategy, as it does not have the necessary components to enter and exit a position, as well as having no risk management. If this project works it is because each market has its own values, different from each other.
 
 ---
-## 2 - The Goal: The target of this project is to recognize which market the data belongs to (for processed data, see the next step)
+## 2 - 
+
+The Goal: The target of this project is to recognize which market the data belongs to (for processed data, see the next step)
+
 --- 
 
 ## 3 - Data
