@@ -1,5 +1,5 @@
 # Market-ticker-prediction
-First ML project about the recognition of the market ticker. Project for ML-zoomcamp course
+First ML project about the market ticker recognition. Project for ML-zoomcamp course
 ---
 
 ## 1 - Problem description
@@ -10,19 +10,21 @@ Usually investors try to predict the future movement of the price into the marke
 
 A lot of strategies are using trading guidelines and operators such as measure of risk as stop loss and take profit, however, there is a field growing in this sector established on statistical decision based on probabilities.
 
-With this project i tried to elaborate the data, trying to predict the market ticker. A key aspect about this repository , it's that this is not intended to be a strategy because it doesn't have the components needed to enter and exit a position, or even risk management. If this project works, it's because each market has a proper values, different one to the other.
+With this project I tried to process the data, trying to predict the market ticker. A key aspect of this repository is that it is not intended as a strategy, as it does not have the necessary components to enter and exit a position, as well as having no risk management. If this project works it is because each market has its own values, different from each other.
 
+---
+## 2 - The Goal: The target of this project is to recognize which market the data belongs to (for processed data, see the next step)
 --- 
 
-## 2 - Data
-This dataset offers detailed, up-to-date information on precious metals futures. Futures are financial contracts obligating the buyer to purchase, and the seller to sell, a particular precious metal (such as gold, silver, platinum, etc.) at a predetermined future date and price.
+## 3 - Data
+This dataset offers detailed and up-to-date information on precious metals futures. Futures are financial contracts obligating the buyer to purchase, and the seller to sell, a particular precious metal (such as gold, silver, platinum, etc.) at a predetermined future date and price.
 
-The data was obtained from this repository (https://www.kaggle.com/datasets/guillemservera/precious-metals-data) that has data, from 2000 until october 2023, on several markets:
-	  - Gold 
-    - Silver
-    - Platinum
-    - Copper
-    - Palladium
+The data was obtained from this repository (https://www.kaggle.com/datasets/guillemservera/precious-metals-data) that has data, from 2000 until october 2023, on different markets:
+	- Gold 
+	- Silver
+	- Platinum
+    	- Copper
+    	- Palladium
 
 Important details about the data:
 - The timezone is UTC
@@ -37,31 +39,29 @@ Important details about the data:
 	- Ticker: Market quotation symbol for the future.
 	- Commodity: Name of the precious metal the future refers to.
  
-In this dataset we decided to use the dataset with different commodities, in this way we don't have data related to the market. I uploaded the entire dataset in the repository. File: *all_commodities_data.csv*
-The last data store in the data folder to train our model was obtained 20 october 2023
+In this dataset we decided to use the dataset with different commodities, in this way we do not have data relating to the single market. I uploaded the entire dataset to the repository. File: *all_commodities_data.csv*
+The latest datastore in the data folder to train our model was obtained on October 20, 2023
  
-This data is processed using the ``train.py`` file store in the data folder.
-Those markets have different price and flow, so i decided to change the data in something shared, like distances between the main important values:
-	  - 'diff_oc': This is the distance between the open and the close of the day 
-    - 'diff_ol': This is the distance between the open and the low of the day 
-    - 'diff_oh': This is the distance between the open and the high of the day 
-    - 'diff_cl': This is the distance between the close and the low of the day 
-    - 'diff_ch': This is the distance between the close and the high of the day
-    - 'diff_hl': This is the distance between the high and the low of the day 
+This data is processed using the ``train.py`` file archive in the data folder.
+These markets have different prices and flows, so I decided to process the data into something common between them, such as distances between the main important values:
+	- 'diff_oc': This is the distance between the open and the close of the day 
+    	- 'diff_ol': This is the distance between the open and the low of the day 
+    	- 'diff_oh': This is the distance between the open and the high of the day 
+    	- 'diff_cl': This is the distance between the close and the low of the day 
+    	- 'diff_ch': This is the distance between the close and the high of the day
+    	- 'diff_hl': This is the distance between the high and the low of the day 
 
-We decided to eliminate some columns based on the Correlation Matrix Heatmap. With this matrix we showed the dependencies between columns. 
-we cut:
+We decided to delete some columns based on the heatmap of the correlation matrix, because with this matrix we showed the dependencies between the columns.
+We cut:
 	- ticker, because it's the same of commodity, but wrote under another form.
 	- volume
 	- open
 	- high
 	- low
 
-The goal of this project is to predict the commoddity if we have open, close, high and low of the market.
-
 ---
 
-## 3 - Structure of the repository
+## 4 - Structure of the repository
 
 ### DATASET
 **all_commodities_data.csv**: Contains the full dataset
@@ -82,12 +82,12 @@ The goal of this project is to predict the commoddity if we have open, close, hi
 
 ---
 
-## Loading final model in web service:
+## 5 - Loading final model in web service:
 
 #### pipenv
 
 The script *train.py* load the model : *mid_term_model.bin* and it can run in a separate virtual environment across its dependency files *Pipenv* and *Pipenv.lock*.
-*flask* was used for the web deployment in *train.py* script.
+*flask* was used for the local web deployment in *train.py* script.
 
 - Install pipenv :
 ```
@@ -120,15 +120,15 @@ docker run -it --rm -p 9696:9696 market_pred:latest
 
 #### Test the local web service:
 
-- To test the web service, in another terminal you can run the test script:
+- To test the local web service, you can run the test script in another terminal:
 ```
 python predict-test.py
 ```
-- Edit the market values to analize the data about some market, you should change the parameters in the file, you can get them from the smaller dataset present in this repo:
+- If you edit the market values to analize some data, you should modify the parameters in the file predict-test.py, maybe you cane take them from the smaller dataset present in this repo of each market:
 ```
 vi predict-test.py
 ```
-P.S: The actual values in predict-test.py are take from Gold, raw number 5000.
+P.S: The current values in predict-test.py are taken from Gold dataset, raw number 5000.
 
 ---
 
