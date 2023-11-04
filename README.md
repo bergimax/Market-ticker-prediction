@@ -128,13 +128,12 @@ python predict-test.py
 ```
 vi predict-test.py
 ```
-The actual values in predict-test.py are take from Gold, raw number 5000.
+P.S: The actual values in predict-test.py are take from Gold, raw number 5000.
 
 ---
 
 #### Video of the service running :
-I loaded a small video where you can see how the web service works : *sefvice.mp4* 
+I loaded a small video where you can see how the web service works : *docker_running.mp4* 
 
-The video show the local web service starting in Docker, and how it works, evaluating different patients with different data.
-
-I suggest to view it using VLC player.
+The video show the local web service starting in Docker and how it respond to the predict-test.py
+I also attached the screenshot of the service running with flask and gunicorn, the files are: *gunicorn_running.png* and *Flask_running.png*
